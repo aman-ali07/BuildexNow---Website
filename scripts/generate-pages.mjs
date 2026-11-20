@@ -5,7 +5,7 @@ const configuredOrigin = (process.env.SITE_ORIGIN || '').replace(/\/+$/, '');
 if (process.env.CF_PAGES === '1' && !configuredOrigin) {
   throw new Error('SITE_ORIGIN must be set in Cloudflare Pages (e.g. https://buildexnow.pages.dev)');
 }
-const SITE_ORIGIN = configuredOrigin || 'https://buildexnow.com';
+const SITE_ORIGIN = configuredOrigin || 'https://buildexnow.pages.dev';
 
 const ROOT = process.cwd();
 const SERVICE_SLUGS = [
