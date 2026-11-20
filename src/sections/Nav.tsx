@@ -63,10 +63,10 @@ function Brand() {
     <a className="brand" href="/" aria-label="BuildexNow — home">
       <img
         className="brand-logo"
-        src="/assets/ref/buildexnow-wordmark.png"
+        src="/assets/ref/buildexnow-lockup.png"
         alt="BuildexNow"
-        width={871}
-        height={163}
+        width={344}
+        height={71}
       />
     </a>
   );
