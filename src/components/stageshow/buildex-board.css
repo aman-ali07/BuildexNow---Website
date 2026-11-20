@@ -1,0 +1,413 @@
+/* BuildexNow product study — scoped to this stage.
+   Charcoal surfaces with one neon lime signal (#C8FF4D).
+   Quiet grays carry everything that is not the story. */
+
+.bb {
+  & .ss-stage {
+    --gutter: 28px;
+    --bb-accent: #C8FF4D;
+    --bb-canvas: #0b0b0c;
+    --bb-raised: #141416;
+    --bb-chrome: #141416;
+    --bb-ink: #f4f4f5;
+    --bb-muted: #8a8a90;
+    --bb-faint: #5e5e64;
+    --bb-rule: rgba(255, 255, 255, 0.09);
+    --bb-rule-faint: rgba(255, 255, 255, 0.05);
+
+    --ss-accent: var(--bb-accent);
+    --ss-accent-text: #111111;
+    --ss-accent-soft: rgba(200, 255, 77, 0.16);
+    --ss-surface: var(--bb-raised);
+    --ss-chrome: var(--bb-chrome);
+    --ss-canvas: var(--bb-canvas);
+    --ss-line: var(--bb-rule);
+    --ss-line-faint: var(--bb-rule-faint);
+    --ss-text: var(--bb-muted);
+    --ss-text-strong: var(--bb-ink);
+    --ss-text-faint: var(--bb-faint);
+    --ss-icon: var(--bb-muted);
+    --ss-icon-faint: var(--bb-faint);
+    --ss-font: "DM Sans", "Inter", system-ui, sans-serif;
+    --ss-shadow-hero: 0 0 0 1px rgba(255, 255, 255, 0.08), 0 34px 64px -20px rgba(0, 0, 0, 0.9);
+
+    overflow: hidden;
+    border-radius: 14px;
+    background: var(--ss-canvas);
+  }
+
+  .bb-window {
+    position: absolute;
+    top: var(--gutter);
+    left: var(--gutter);
+    width: 764px;
+    height: 520px;
+    box-shadow: var(--ss-shadow-hero);
+  }
+
+  .bb-window .ss-window__body {
+    display: flex;
+    height: 100%;
+  }
+
+  .bb-side {
+    display: flex;
+    flex: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+    width: 150px;
+    padding: 18px 12px;
+    background: var(--bb-raised);
+    border-right: 1px solid var(--ss-line);
+  }
+
+  .bb-side-mark {
+    margin-bottom: 18px;
+    padding-left: 8px;
+    font-family: var(--ss-font);
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: -0.06em;
+    color: var(--bb-ink);
+  }
+
+  .bb-nav {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 8px;
+    border-radius: 7px;
+    color: var(--bb-muted);
+  }
+
+  .bb-nav[data-on] {
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--bb-ink);
+  }
+
+  .bb-nav-label {
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  .bb-side-foot {
+    margin-top: auto;
+    padding-left: 8px;
+  }
+
+  .bb-body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 14px;
+    padding: 20px 22px;
+    background: var(--bb-canvas);
+    overflow: hidden;
+  }
+
+  .bb-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding-left: 14px;
+  }
+
+  .bb-crumb {
+    font-family: var(--ss-mono);
+    font-size: 10px;
+    letter-spacing: 0.04em;
+    color: var(--bb-faint);
+  }
+
+  .bb-title {
+    margin-top: 4px;
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    color: var(--bb-ink);
+  }
+
+  .bb-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 7px 12px;
+    position: relative;
+    justify-content: center;
+    flex: none;
+    width: 92px;
+    border-radius: 999px;
+    background: #1e1e21;
+    color: var(--bb-muted);
+    font-size: 11px;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+
+  .bb-status-dot {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: currentColor;
+    transform: translateY(-50%);
+  }
+
+  .bb-status[data-live] {
+    background: var(--bb-accent);
+    color: #14100d;
+  }
+
+  .bb-status-labels {
+    position: relative;
+    display: block;
+    width: 62px;
+    height: 14px;
+  }
+  .bb-status-label {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.32s ease;
+  }
+  .bb-status-label--draft { opacity: 1; }
+  .bb-status-label--live { opacity: 0; }
+  .bb-status[data-live] .bb-status-label--draft { opacity: 0; }
+  .bb-status[data-live] .bb-status-label--live { opacity: 1; }
+
+  .bb-preview {
+    flex: 1;
+    border: 1px solid var(--ss-line);
+    border-radius: 10px;
+    overflow: hidden;
+    background: var(--bb-raised);
+  }
+
+  .bb-preview-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 30px;
+    padding: 0 12px;
+    background: #1a1a1d;
+    border-bottom: 1px solid var(--ss-line);
+  }
+
+  .bb-preview-url {
+    font-family: var(--ss-mono);
+    font-size: 10px;
+    color: var(--bb-muted);
+  }
+
+  .bb-preview-page {
+    display: flex;
+    flex-direction: column;
+    height: 190px;
+    background: #101012;
+  }
+
+  .bb-preview-nav {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--bb-rule-faint);
+  }
+
+  .bb-preview-hero {
+    padding: 24px 12px 0;
+  }
+
+  .bb-preview-h {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    color: var(--bb-ink);
+  }
+
+  .bb-preview-lines {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin-top: 12px;
+  }
+
+  .bb-preview-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    align-self: flex-start;
+    margin-top: 16px;
+    padding: 8px 14px;
+    border-radius: 6px;
+    background: var(--bb-accent);
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 600;
+  }
+
+  .bb-metrics {
+    display: flex;
+    gap: 12px;
+  }
+
+  .bb-metric {
+    flex: 1;
+    padding: 12px 14px;
+    border: 1px solid var(--ss-line);
+    border-radius: 8px;
+    background: var(--bb-raised);
+  }
+
+  .bb-metric-label {
+    font-size: 10px;
+    color: var(--bb-muted);
+  }
+
+  .bb-metric-value {
+    margin-top: 5px;
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: var(--bb-ink);
+  }
+
+  .bb-satellite {
+    position: absolute;
+    top: 168px;
+    /* Right edge lands one 28px gutter inside the 760px stage, not 12px. */
+    left: 532px;
+    z-index: 10;
+    width: 200px;
+    padding: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    background: var(--bb-raised);
+    box-shadow: var(--ss-shadow-satellite);
+  }
+
+  .bb-sat-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: var(--ss-mono);
+    font-size: 9px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--bb-muted);
+  }
+
+  .bb-sat-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--bb-faint);
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .bb-satellite[data-live] .bb-sat-dot {
+    background: var(--bb-accent);
+    box-shadow: 0 0 0 3px var(--ss-accent-soft);
+  }
+
+  .bb-sat-number {
+    margin-top: 8px;
+    font-size: 38px;
+    font-weight: 700;
+    letter-spacing: -0.05em;
+    color: var(--bb-ink);
+  }
+
+  .bb-sat-number span {
+    font-size: 16px;
+    color: var(--bb-muted);
+  }
+
+  .bb-sat-bars {
+    display: flex;
+    align-items: flex-end;
+    gap: 4px;
+    height: 34px;
+    margin-top: 12px;
+  }
+
+  .bb-sat-bars span {
+    flex: 1;
+    border-radius: 2px 2px 0 0;
+    background: var(--bb-faint);
+    transition: background 0.35s ease;
+  }
+
+  .bb-satellite[data-live] .bb-sat-bars span {
+    background: var(--bb-accent);
+  }
+
+  .bb-satellite[data-live] .bb-sat-bars span:nth-child(-n + 4) {
+    opacity: 0.4;
+  }
+
+  /* Compact: a tighter crop for the 358px phone column. The sidebar and the
+     metrics row are dropped; the pill moves inward so it stays whole. */
+  & .ss-stage[data-layout="compact"] {
+    --gutter: 16px;
+
+    .bb-window {
+      width: 380px;
+      height: 360px;
+    }
+
+    .bb-side {
+      display: none;
+    }
+
+    .bb-body {
+      gap: 10px;
+      padding: 14px;
+    }
+
+    .bb-head {
+      padding-right: 28px;
+    }
+
+    .bb-title {
+      font-size: 20px;
+    }
+
+    .bb-preview-page {
+      height: 168px;
+    }
+
+    .bb-preview-hero {
+      padding-top: 18px;
+    }
+
+    .bb-preview-h {
+      font-size: 18px;
+    }
+
+    .bb-satellite {
+      /* 16px gutters on the 358px compact stage (right and bottom). */
+      top: 168px;
+      left: 194px;
+      width: 148px;
+      padding: 12px;
+    }
+
+    .bb-sat-top { font-size: 10px; }
+
+    .bb-sat-number {
+      font-size: 30px;
+    }
+
+    .bb-sat-bars {
+      height: 26px;
+      margin-top: 10px;
+    }
+  }
+}
